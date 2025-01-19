@@ -1,31 +1,25 @@
 name: Generate Snake Animation
 
 on:
+  push:
   schedule:
-    # Run every day at midnight
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: "0 20 * * *" # Runs daily at 20:00 UTC
 
 jobs:
-  build:
+  generate-snake:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 2: Generate the snake animation
-      - name: Generate Snake
+      - name: Generate Snake Animation
         uses: Platane/snk@v2
         with:
-          # GitHub user name
-          github_user_name: ${{ github.repository_owner }}
-          # Output path
+          github_user_name: sahidbalwa # Replace with your GitHub username
           outputs: dist/snake.svg
 
-      # Step 3: Push the animation to the output branch
-      - name: Push Snake Animation
-        uses: crazy-max/ghaction-github-pages@v3
+      - name: Upload Snake Animation
+        uses: actions/upload-artifact@v3
         with:
-          target_branch: output
-          build_dir: dist
+          name: snake-animation
+          path: dist/snake.svg
