@@ -41,7 +41,7 @@
 ---
 
 ## 🚀 Animated Contribution Graph:
-![Snake animation](https://github.com/sahidbalwa/sahidbalwa/blob/output/github-contribution-grid-snake.svg)
+![Snake animation](https://github.com/sahilbawa/sahilbawa/blob/output/github-contribution-grid-simplified.svg)
 
 ---
 
